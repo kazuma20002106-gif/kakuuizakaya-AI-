@@ -71,6 +71,8 @@
 
     .shoji-tunnel {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       transform-style: preserve-3d;
@@ -81,7 +83,15 @@
     body.is-loaded-camera-1 .shoji-tunnel { transform: translateZ(9500px); transition: transform 10.5s linear 0.8s; }
     body.is-loaded-camera-2 .shoji-tunnel { transform: translateZ(11500px); transition: transform 2.5s ease-in; }
 
-    .shoji-layer { position: absolute; inset: -350px; transform-style: preserve-3d; transform: translateZ(var(--z)); }
+    .shoji-layer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 140vw; 
+      height: 140vh;
+      transform: translate(-50%, -50%) translateZ(var(--z));
+      transform-style: preserve-3d;
+    }
 
     .shoji-door {
       position: absolute;
@@ -168,11 +178,11 @@
     .fv-content { text-align: center; z-index: 10; padding: 0 20px; }
 
     @media (max-width: 768px) {
-      .fv { height: 60vh; }
+      .fv { height: 45vh; min-height: 350px; }
       .fv-slide:nth-child(1) { object-position: 50% center; } 
       .fv-slide:nth-child(2) { object-position: 50% center; } 
-      .fv h2 { font-size: 28px; }
-      .fv-content p { font-size: 14px; }
+      .fv h2 { font-size: 24px; }
+      .fv-content p { font-size: 13px; }
     }
 
     .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: #fff; font-size: 10px; letter-spacing: 0.2em; opacity: 0.8; }
@@ -249,10 +259,9 @@
 
     <section class="fv">
       <div class="fv-slider">
-        <!-- ダミー画像URLに差し替え済み -->
-        <img src="https://images.unsplash.com/photo-1542314541-60fb6b62c151?auto=format&fit=crop&w=1600&q=80" onerror="this.src='https://placehold.jp/1600x900.png?text=職人の包丁捌き'" alt="職人の包丁捌き" class="fv-slide active" fetchpriority="high">
-        <img src="https://images.unsplash.com/photo-1581184856011-85e683313bc9?auto=format&fit=crop&w=1600&q=80" onerror="this.src='https://placehold.jp/1600x900.png?text=揚げたての天ぷら'" alt="揚げたての天ぷら" class="fv-slide" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1542640244-7e672d6cb461?auto=format&fit=crop&w=1600&q=80" onerror="this.src='https://placehold.jp/1600x900.png?text=店の外観'" alt="店の外観" class="fv-slide" loading="lazy">
+        <img src="./img/fv-cutting.jpg" alt="職人の包丁捌き" class="fv-slide active" fetchpriority="high">
+        <img src="./img/fv-tempura.jpg" alt="揚げたての天ぷら" class="fv-slide" loading="lazy">
+        <img src="./img/fv-exterior.jpg" alt="店の外観" class="fv-slide" loading="lazy">
       </div>
       <div class="fv-overlay"></div>
       <div class="fv-content">
@@ -285,7 +294,7 @@
       <p class="section-subtitle">こだわりの看板料理</p>
       <div class="menu-showcase">
         <div class="menu-card">
-          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=三点盛り'" alt="三点盛り" loading="lazy"></div>
+          <div class="menu-card-img"><img src="./img/fv-sashimi.jpg" alt="三点盛り" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">市場直送の三点盛り</h3>
             <div class="menu-card-price">1,880円</div>
@@ -293,7 +302,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=肉豆腐'" alt="究極の肉豆腐" loading="lazy"></div>
+          <div class="menu-card-img"><img src="./img/menu-nikudofu.jpg" alt="究極の肉豆腐" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">究極の肉豆腐</h3>
             <div class="menu-card-price">880円</div>
@@ -301,7 +310,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1555126634-323283e090f1?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=ポテトサラダ'" alt="黄金比のポテトサラダ" loading="lazy"></div>
+          <div class="menu-card-img"><img src="./img/menu-potesara.jpg" alt="黄金比のポテトサラダ" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">黄金比のポテトサラダ</h3>
             <div class="menu-card-price">720円</div>
@@ -317,7 +326,7 @@
       <p class="section-subtitle">厳選美酒</p>
       <div class="menu-showcase">
         <div class="menu-card">
-          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1565492190333-e18e80556e4c?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=日本酒'" alt="日本酒 紋音" loading="lazy"></div>
+          <div class="menu-card-img"><img src="./img/drink-sake.jpg" alt="日本酒 紋音" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">純米大吟醸 ～紋音（もんね）～</h3>
             <div class="menu-card-price">グラス 980円</div>
@@ -364,14 +373,14 @@
       <h2 class="section-title">最適な空間を</h2>
       <div class="space-grid">
         <div class="space-card">
-          <img src="https://images.unsplash.com/photo-1536904663116-369b76c81ab7?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=カウンター席'" alt="カウンター席" loading="lazy">
+          <img src="./img/space-counter.jpg" alt="カウンター席" loading="lazy">
           <div style="padding:20px;">
             <h4 class="serif">カウンター席（10席）</h4>
             <p style="font-size: 14px; color: var(--text-sub);">職人の技を目の前で楽しめる特等席。</p>
           </div>
         </div>
         <div class="space-card">
-          <img src="https://images.unsplash.com/photo-1522066847250-e5fd85a06d04?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=掘りごたつ席'" alt="掘りごたつ席" loading="lazy">
+          <img src="./img/space-horigotatsu.jpg" alt="掘りごたつ席" loading="lazy">
           <div style="padding:20px;">
             <h4 class="serif">掘りごたつ半個室（6名席×4）</h4>
             <p style="font-size: 14px; color: var(--text-sub);">障子で仕切られたプライベート空間。</p>
