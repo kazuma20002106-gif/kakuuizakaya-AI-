@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>架空居酒屋AI～あい～ | 「あたりまえ」を,最高に。 v4.6.0</title>
+  <title>架空居酒屋AI～あい～ | 「最高」を,あたりまえに。 v4.6.0</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,8 +132,9 @@
     body.is-font-ready .shoji-text { opacity: 0.95; }
 
     @media (max-width: 768px) {
-      .shoji-door.left .shoji-text { transform: translateX(50px); }
-      .shoji-door.right .shoji-text { transform: translateX(-50px); }
+      /* 文字の中央寄せを微調整（50px -> 20pxへ緩和し端に寄せる） */
+      .shoji-door.left .shoji-text { transform: translateX(20px); }
+      .shoji-door.right .shoji-text { transform: translateX(-20px); }
     }
 
     #skip-btn { position: absolute; bottom: 30px; right: 30px; z-index: 10000; color: #ffffff; font-size: 13px; font-weight: bold; letter-spacing: 2px; border: 1px solid rgba(255,255,255,0.5); background: rgba(0, 0, 0, 0.6); padding: 8px 18px; border-radius: 20px; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(4px); }
@@ -173,7 +174,7 @@
     .fv-slide.active { opacity: 1; }
     .fv-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); z-index: -1; }
     
-    .fv h2 { font-size: clamp(32px, 6vw, 48px); margin-bottom: 15px; line-height: 1.3; text-indent: -0.4em; }
+    .fv h2 { font-size: clamp(32px, 6vw, 48px); margin-bottom: 15px; line-height: 1.3; } /* インデント削除で完璧な中央揃えへ */
     .fv h2 span { display: inline-block; white-space: nowrap; }
     .fv-content { text-align: center; z-index: 10; padding: 0 20px; }
 
@@ -265,7 +266,8 @@
       </div>
       <div class="fv-overlay"></div>
       <div class="fv-content">
-        <h2 class="serif"><span>「あたりまえ」を,</span><span>最高に。</span></h2>
+        <!-- 文言を修正し、中央揃えを美しく最適化 -->
+        <h2 class="serif"><span>「最高」を,</span><span>あたりまえに。</span></h2>
         <p>その日のうまいを見極め,外さない一夜へ。</p>
         <div style="margin-top: 30px;">
           <a href="#reserve" class="header-reserve-btn" style="display:inline-block; padding: 18px 40px; border-radius: 4px;">Web予約 (24時間受付)</a>
