@@ -265,6 +265,14 @@
           <p style="font-size: 14px; color: var(--text-sub);">過去の注文率No.1。酒が進む圧倒的な王者。</p>
         </div>
       </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="./img/menu-potesara.jpg" alt="黄金比のポテトサラダ"></div>
+        <div class="menu-card-info">
+          <h3 class="menu-card-title serif">黄金比のポテトサラダ</h3>
+          <div class="menu-card-price">720円</div>
+          <p style="font-size: 14px; color: var(--text-sub);">燻製の香りが後を引く、お酒との相性を追求した一品。</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -322,11 +330,17 @@
     <div class="space-grid">
       <div class="space-card">
         <img src="./img/space-counter.jpg" alt="カウンター席">
-        <div class="space-info"><h4 class="serif">カウンター席（10席）</h4></div>
+        <div class="space-info">
+          <h4 class="serif">カウンター席（10席）</h4>
+          <p style="font-size: 14px; color: var(--text-sub);">職人の技を目の前で楽しめる特等席。</p>
+        </div>
       </div>
       <div class="space-card">
         <img src="./img/space-horigotatsu.jpg" alt="掘りごたつ席">
-        <div class="space-info"><h4 class="serif">掘りごたつ半個室（6名席×4）</h4></div>
+        <div class="space-info">
+          <h4 class="serif">掘りごたつ半個室（6名席×4）</h4>
+          <p style="font-size: 14px; color: var(--text-sub);">障子で仕切られたプライベート空間。最大24名様までの宴会も可能です。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -418,7 +432,7 @@
         // 自動で次のスライド（全枚数に対応）へ
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
-      }, 6000); // 3枚なので少しゆっくり(6秒)に変更.
+      }, 6000); // 3枚なので少しゆっくり(6秒)に変更
     }
   </script>
 </body>
