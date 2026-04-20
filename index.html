@@ -71,8 +71,8 @@
 
     .shoji-tunnel {
       position: absolute;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       transform-style: preserve-3d;
       transform: translateZ(-500px); 
       will-change: transform;
@@ -126,7 +126,8 @@
       .shoji-door.right .shoji-text { transform: translateX(-50px); }
     }
 
-    #skip-btn { position: absolute; bottom: 30px; right: 30px; z-index: 10000; color: #ffffff; font-size: 13px; font-weight: bold; letter-spacing: 2px; border: 1px solid #333333; background: rgba(0, 0, 0, 0.8); padding: 8px 18px; border-radius: 20px; cursor: pointer; transition: all 0.3s; }
+    #skip-btn { position: absolute; bottom: 30px; right: 30px; z-index: 10000; color: #ffffff; font-size: 13px; font-weight: bold; letter-spacing: 2px; border: 1px solid rgba(255,255,255,0.5); background: rgba(0, 0, 0, 0.6); padding: 8px 18px; border-radius: 20px; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(4px); }
+    #skip-btn:hover { background: rgba(255,255,255,0.2); border-color: #fff; }
 
     /* --------------------------------------
        Navigation & Layout
@@ -137,8 +138,10 @@
     .global-nav ul { list-style: none; margin: 0; padding: 0 10px; display: flex; gap: 20px; white-space: nowrap; }
     .global-nav a { font-size: 13px; font-weight: bold; color: var(--text-main); }
     .nav-top { display: flex; width: 100%; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-    .header-tel-btn { border: 1px solid var(--text-main); padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; white-space: nowrap; margin-left: 15px; }
-    .header-reserve-btn { background-color: var(--cta-color); color: #fff !important; width: 100%; max-width: 600px; padding: 14px; border-radius: 6px; font-weight: bold; text-align: center; }
+    .header-tel-btn { border: 1px solid var(--text-main); padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; white-space: nowrap; margin-left: 15px; transition: background 0.3s, color 0.3s; }
+    .header-tel-btn:hover { background: var(--text-main); color: #fff; }
+    .header-reserve-btn { background-color: var(--cta-color); color: #fff !important; width: 100%; max-width: 600px; padding: 14px; border-radius: 6px; font-weight: bold; text-align: center; transition: background 0.3s; }
+    .header-reserve-btn:hover { background-color: var(--cta-hover); }
 
     @media (min-width: 769px) {
       body { padding-top: 80px; }
@@ -158,14 +161,18 @@
     .fv-slider { position: absolute; inset: 0; z-index: -2; }
     .fv-slide { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 2.5s ease-in-out; object-fit: cover; }
     .fv-slide.active { opacity: 1; }
-    .fv-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); z-index: -1; }
+    .fv-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); z-index: -1; }
     
     .fv h2 { font-size: clamp(32px, 6vw, 48px); margin-bottom: 15px; line-height: 1.3; text-indent: -0.4em; }
     .fv h2 span { display: inline-block; white-space: nowrap; }
+    .fv-content { text-align: center; z-index: 10; padding: 0 20px; }
 
     @media (max-width: 768px) {
-      .fv-slide:nth-child(1) { object-position: 70% center; } 
-      .fv-slide:nth-child(2) { object-position: 40% center; } 
+      .fv { height: 60vh; }
+      .fv-slide:nth-child(1) { object-position: 50% center; } 
+      .fv-slide:nth-child(2) { object-position: 50% center; } 
+      .fv h2 { font-size: 28px; }
+      .fv-content p { font-size: 14px; }
     }
 
     .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; color: #fff; font-size: 10px; letter-spacing: 0.2em; opacity: 0.8; }
@@ -182,13 +189,14 @@
     .menu-showcase { display: flex; flex-direction: column; gap: 50px; }
     .menu-card { display: flex; flex-direction: column; gap: 20px; }
     .menu-card-img { width: 100%; height: 250px; border-radius: 8px; overflow: hidden; background-color: #eee; }
+    .menu-card-img img { width: 100%; height: 100%; object-fit: cover; }
     .menu-card-title { font-size: 22px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 10px; }
     .menu-card-price { font-size: 18px; color: var(--cta-color); font-weight: bold; }
     @media (min-width: 600px) {
       .menu-card { flex-direction: row; gap: 30px; }
       .menu-card:nth-child(even) { flex-direction: row-reverse; }
       .menu-card-img { width: 50%; height: 300px; }
-      .menu-card-info { width: 50%; }
+      .menu-card-info { width: 50%; display: flex; flex-direction: column; justify-content: center; }
     }
 
     .menu-list-wrapper { background: #fff; padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); }
@@ -201,7 +209,7 @@
     .space-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 30px; }
     @media (min-width: 600px) { .space-grid { grid-template-columns: 1fr 1fr; } }
     .space-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-    .space-card img { height: 200px; width: 100%; }
+    .space-card img { height: 200px; width: 100%; object-fit: cover; }
 
     footer { text-align: center; padding: 30px 30px 100px 30px; background: #1a1a1a; color: #888; font-size: 12px; }
     @media (min-width: 769px) { footer { padding-bottom: 30px; } }
@@ -241,9 +249,10 @@
 
     <section class="fv">
       <div class="fv-slider">
-        <img src="./img/fv-cutting.jpg" alt="職人の包丁捌き" class="fv-slide active" fetchpriority="high">
-        <img src="./img/fv-tempura.jpg" alt="揚げたての天ぷら" class="fv-slide" loading="lazy">
-        <img src="./img/fv-exterior.jpg" alt="店の外観" class="fv-slide" loading="lazy">
+        <!-- ダミー画像URLに差し替え済み -->
+        <img src="https://images.unsplash.com/photo-1542314541-60fb6b62c151?auto=format&fit=crop&w=1600&q=80" onerror="this.src='https://placehold.jp/1600x900.png?text=職人の包丁捌き'" alt="職人の包丁捌き" class="fv-slide active" fetchpriority="high">
+        <img src="https://images.unsplash.com/photo-1581184856011-85e683313bc9?auto=format&fit=crop&w=1600&q=80" onerror="this.src='https://placehold.jp/1600x900.png?text=揚げたての天ぷら'" alt="揚げたての天ぷら" class="fv-slide" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1542640244-7e672d6cb461?auto=format&fit=crop&w=1600&q=80" onerror="this.src='https://placehold.jp/1600x900.png?text=店の外観'" alt="店の外観" class="fv-slide" loading="lazy">
       </div>
       <div class="fv-overlay"></div>
       <div class="fv-content">
@@ -276,7 +285,7 @@
       <p class="section-subtitle">こだわりの看板料理</p>
       <div class="menu-showcase">
         <div class="menu-card">
-          <div class="menu-card-img"><img src="./img/fv-sashimi.jpg" alt="三点盛り" loading="lazy"></div>
+          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=三点盛り'" alt="三点盛り" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">市場直送の三点盛り</h3>
             <div class="menu-card-price">1,880円</div>
@@ -284,7 +293,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img"><img src="./img/menu-nikudofu.jpg" alt="究極の肉豆腐" loading="lazy"></div>
+          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=肉豆腐'" alt="究極の肉豆腐" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">究極の肉豆腐</h3>
             <div class="menu-card-price">880円</div>
@@ -292,7 +301,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img"><img src="./img/menu-potesara.jpg" alt="黄金比のポテトサラダ" loading="lazy"></div>
+          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1555126634-323283e090f1?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=ポテトサラダ'" alt="黄金比のポテトサラダ" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">黄金比のポテトサラダ</h3>
             <div class="menu-card-price">720円</div>
@@ -308,7 +317,7 @@
       <p class="section-subtitle">厳選美酒</p>
       <div class="menu-showcase">
         <div class="menu-card">
-          <div class="menu-card-img"><img src="./img/drink-sake.jpg" alt="日本酒 紋音" loading="lazy"></div>
+          <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1565492190333-e18e80556e4c?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=日本酒'" alt="日本酒 紋音" loading="lazy"></div>
           <div class="menu-card-info">
             <h3 class="menu-card-title serif">純米大吟醸 ～紋音（もんね）～</h3>
             <div class="menu-card-price">グラス 980円</div>
@@ -355,14 +364,14 @@
       <h2 class="section-title">最適な空間を</h2>
       <div class="space-grid">
         <div class="space-card">
-          <img src="./img/space-counter.jpg" alt="カウンター席" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1536904663116-369b76c81ab7?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=カウンター席'" alt="カウンター席" loading="lazy">
           <div style="padding:20px;">
             <h4 class="serif">カウンター席（10席）</h4>
             <p style="font-size: 14px; color: var(--text-sub);">職人の技を目の前で楽しめる特等席。</p>
           </div>
         </div>
         <div class="space-card">
-          <img src="./img/space-horigotatsu.jpg" alt="掘りごたつ席" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522066847250-e5fd85a06d04?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.jp/800x600.png?text=掘りごたつ席'" alt="掘りごたつ席" loading="lazy">
           <div style="padding:20px;">
             <h4 class="serif">掘りごたつ半個室（6名席×4）</h4>
             <p style="font-size: 14px; color: var(--text-sub);">障子で仕切られたプライベート空間。</p>
@@ -420,13 +429,12 @@
         document.body.classList.add('is-loaded');
         document.body.classList.add('is-loaded-camera-1');
         
-        // 【修正：タイミング同期】
         // トンネル移動中は背景を黒（#0a0a0a）に維持。
         // 最後の障子が開き、カメラが突き抜ける寸前（11秒目）でページを解禁。
         setTimeout(() => { 
           document.body.classList.add('is-shoji-active'); // ここで背景を透明化
           document.body.classList.add('is-revealing-site'); // サイトのフェードイン開始
-        }, 11000); // 以前の800msから11000msへ大幅に遅延
+        }, 11000); 
 
         // 最終ズーム
         setTimeout(() => {
