@@ -26,6 +26,7 @@
       
       --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
       --font-sans: "Noto Sans JP", sans-serif;
+      --font-brush: "Yuji Syuku", serif; /* 筆文字用変数 */
     }
 
     /* --------------------------------------
@@ -91,14 +92,15 @@
 
     .shoji-text {
       writing-mode: vertical-rl;
-      font-family: 'Shippori Mincho', serif;
+      font-family: var(--font-brush); /* 筆文字へ変更 */
       color: #1a110a;
       font-size: clamp(26px, 4.5vw, 45px); 
       font-weight: bold;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.3em; /* 筆文字に合わせて間隔を微調整 */
       line-height: 1.5; 
       text-align: center;
-      text-shadow: 0 0 20px rgba(255,255,255,1), 0 0 10px rgba(255,255,255,0.8);
+      /* 筆文字の視認性を高める光彩の強化 */
+      text-shadow: 0 0 20px rgba(255,255,255,1), 0 0 10px rgba(255,255,255,0.8), 0 0 5px rgba(255,255,255,0.5);
       opacity: 0;
       transition: opacity 1s ease;
     }
@@ -235,9 +237,9 @@
   <section class="fv">
     <!-- FV スライドショー: 3枚体制 -->
     <div class="fv-slider">
-      <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?q=80&w=800&auto=format&fit=crop" alt="職人の包丁捌き" class="fv-slide active" fetchpriority="high">
-      <img src="https://images.unsplash.com/photo-1581184953963-d1597158853b?q=80&w=800&auto=format&fit=crop" alt="揚げたての天ぷら" class="fv-slide" loading="lazy" decoding="async">
-      <img src="https://images.unsplash.com/photo-1542314831-c5a4d40b501f?q=80&w=800&auto=format&fit=crop" alt="店の外観" class="fv-slide" loading="lazy" decoding="async">
+      <img src="./img/fv-cutting.jpg" alt="職人の包丁捌き" class="fv-slide active" fetchpriority="high">
+      <img src="./img/fv-tempura.jpg" alt="揚げたての天ぷら" class="fv-slide" loading="lazy" decoding="async">
+      <img src="./img/fv-exterior.jpg" alt="店の外観" class="fv-slide" loading="lazy" decoding="async">
     </div>
     <div class="fv-overlay"></div>
     <div class="fv-content">
@@ -266,7 +268,7 @@
     <p class="section-subtitle">こだわりの看板料理</p>
     <div class="menu-showcase">
       <div class="menu-card">
-        <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1534256958597-7fdffda37733?q=80&w=400&auto=format&fit=crop" alt="三点盛り" loading="lazy" decoding="async"></div>
+        <div class="menu-card-img"><img src="./img/fv-sashimi.jpg" alt="三点盛り" loading="lazy" decoding="async"></div>
         <div class="menu-card-info">
           <h3 class="menu-card-title serif">市場直送の三点盛り</h3>
           <div class="menu-card-price">1,880円</div>
@@ -274,7 +276,7 @@
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?q=80&w=400&auto=format&fit=crop" alt="究極の肉豆腐" loading="lazy" decoding="async"></div>
+        <div class="menu-card-img"><img src="./img/menu-nikudofu.jpg" alt="究極の肉豆腐" loading="lazy" decoding="async"></div>
         <div class="menu-card-info">
           <h3 class="menu-card-title serif">究極の肉豆腐</h3>
           <div class="menu-card-price">880円</div>
@@ -282,7 +284,7 @@
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1626200419109-31f8f0ec8dc9?q=80&w=400&auto=format&fit=crop" alt="黄金比のポテトサラダ" loading="lazy" decoding="async"></div>
+        <div class="menu-card-img"><img src="./img/menu-potesara.jpg" alt="黄金比のポテトサラダ" loading="lazy" decoding="async"></div>
         <div class="menu-card-info">
           <h3 class="menu-card-title serif">黄金比のポテトサラダ</h3>
           <div class="menu-card-price">720円</div>
@@ -298,7 +300,7 @@
     <p class="section-subtitle">厳選美酒</p>
     <div class="menu-showcase">
       <div class="menu-card">
-        <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1583344600109-1ba62debd6d9?q=80&w=400&auto=format&fit=crop" alt="日本酒 紋音" loading="lazy" decoding="async"></div>
+        <div class="menu-card-img"><img src="./img/drink-sake.jpg" alt="日本酒 紋音" loading="lazy" decoding="async"></div>
         <div class="menu-card-info">
           <h3 class="menu-card-title serif">純米大吟醸 ～紋音（もんね）～</h3>
           <div class="menu-card-price">グラス 980円</div>
@@ -345,14 +347,14 @@
     <h2 class="section-title">最適な空間を</h2>
     <div class="space-grid">
       <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=400&auto=format&fit=crop" alt="カウンター席" loading="lazy" decoding="async">
+        <img src="./img/space-counter.jpg" alt="カウンター席" loading="lazy" decoding="async">
         <div class="space-info">
           <h4 class="serif">カウンター席（10席）</h4>
           <p style="font-size: 14px; color: var(--text-sub);">職人の技を目の前で楽しめる特等席。</p>
         </div>
       </div>
       <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=400&auto=format&fit=crop" alt="掘りごたつ席" loading="lazy" decoding="async">
+        <img src="./img/space-horigotatsu.jpg" alt="掘りごたつ席" loading="lazy" decoding="async">
         <div class="space-info">
           <h4 class="serif">掘りごたつ半個室（6名席×4）</h4>
           <p style="font-size: 14px; color: var(--text-sub);">障子で仕切られたプライベート空間。最大24名様までの宴会も可能です。</p>
@@ -371,7 +373,7 @@
     </div>
   </section>
 
-  <footer>&copy; 2026 架空居酒屋AI～あい～ / Version 3.3.0</footer>
+  <footer>&copy; 2026 架空居酒屋AI～あい～ / Version 3.4.0</footer>
 
   <script>
     // --------------------------------------
