@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>架空居酒屋AI～あい～ | 「最高」を,あたりまえに。 v4.6.0</title>
+  <title>架空居酒屋AI～あい～ | 「最高」を,あたりまえに。 v4.6.2</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +47,9 @@
     body.is-revealing-site #main-content { 
       opacity: 1; 
       filter: brightness(1);
+    }
+    body.is-final-clear #main-content { 
+      filter: none; 
     }
 
     /* --------------------------------------
@@ -135,6 +138,8 @@
       /* 文字の中央寄せを微調整（50px -> 20pxへ緩和し端に寄せる） */
       .shoji-door.left .shoji-text { transform: translateX(20px); }
       .shoji-door.right .shoji-text { transform: translateX(-20px); }
+      /* 障子の幅設定起因のズレを解消し、スマホで視覚的に完全に中央で合わさるよう調整 */
+      .shoji-door { width: calc(50% - 17px); }
     }
 
     #skip-btn { position: absolute; bottom: 30px; right: 30px; z-index: 10000; color: #ffffff; font-size: 13px; font-weight: bold; letter-spacing: 2px; border: 1px solid rgba(255,255,255,0.5); background: rgba(0, 0, 0, 0.6); padding: 8px 18px; border-radius: 20px; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(4px); }
@@ -180,8 +185,12 @@
 
     @media (max-width: 768px) {
       .fv { height: 45vh; min-height: 350px; }
-      .fv-slide:nth-child(1) { object-position: 50% center; } 
-      .fv-slide:nth-child(2) { object-position: 50% center; } 
+      /* スマホ時の背景グラデーションを強め、被写体との被りを避けるためにコンテンツを下へシフト */
+      .fv-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 100%); }
+      .fv-content { transform: translateY(30px); }
+      /* オブジェクト位置を微調整し、メイン被写体がテキストと被らないようにする */
+      .fv-slide:nth-child(1) { object-position: 70% center; } 
+      .fv-slide:nth-child(2) { object-position: 30% center; } 
       .fv h2 { font-size: 24px; }
       .fv-content p { font-size: 13px; }
     }
@@ -401,7 +410,7 @@
       </div>
     </section>
 
-    <footer>&copy; 2026 架空居酒屋AI～あい～ / Version 4.6.0</footer>
+    <footer>&copy; 2026 架空居酒屋AI～あい～ / Version 4.6.2</footer>
   </div>
 
   <script>
