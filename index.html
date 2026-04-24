@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>架空居酒屋AI～あい～ | 「最高」を,あたりまえに。 v4.6.2</title>
+  <title>架空居酒屋AI～あい～ | 「最高」を,あたりまえに。 v4.7.2</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,7 +126,7 @@
       font-weight: bold;
       letter-spacing: 0.4em; 
       line-height: 1.5; 
-      text-align: center;
+      text-align: start;
       text-shadow: 0 0 15px rgba(255,255,255,0.6), 0 0 5px rgba(255,255,255,0.4);
       opacity: 0;
       transition: opacity 1s ease;
@@ -167,11 +167,6 @@
       .header-tel-btn { margin-left: auto; margin-right: 20px; }
       .header-reserve-btn { width: auto; padding: 16px 40px; border-radius: 30px; }
     }
-
-    .floating-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(253, 251, 247, 0.95); backdrop-filter: blur(8px); border-top: 1px solid var(--border-color); padding: 10px 15px 25px; z-index: 950; display: flex; justify-content: space-between; box-sizing: border-box; }
-    .floating-cta .btn-main { width: 65%; padding: 14px 0; background-color: var(--cta-color); color: #fff; border-radius: 4px; font-weight: bold; text-align: center; }
-    .floating-cta .tel-btn { width: 32%; padding: 14px 0; border: 1px solid var(--text-main); text-align: center; border-radius: 4px; font-weight: bold; font-size: 13px; }
-    @media (min-width: 769px) { .floating-cta { display: none; } }
 
     .fv { position: relative; height: 85vh; display: flex; align-items: center; justify-content: center; color: #fff; overflow: hidden; }
     .fv-slider { position: absolute; inset: 0; z-index: -2; }
@@ -261,11 +256,6 @@
       </div>
       <a href="#reserve" class="header-reserve-btn">空席確認・Web予約はこちら</a>
     </header>
-
-    <div class="floating-cta">
-      <a href="tel:0300000000" class="tel-btn">📞 電話する</a>
-      <a href="#reserve" class="btn-main">Web予約はこちら</a>
-    </div>
 
     <section class="fv">
       <div class="fv-slider">
@@ -410,23 +400,23 @@
       </div>
     </section>
 
-    <footer>&copy; 2026 架空居酒屋AI～あい～ / Version 4.6.2</footer>
+    <footer>&copy; 2026 架空居酒屋AI～あい～ / Version 4.7.2</footer>
   </div>
 
   <script>
     const tunnel = document.getElementById('shoji-tunnel');
-    const mainTitle = "架空居酒屋<span class='upright'>AI</span><br><span style='font-size: 0.6em; margin-top: 10px;'>～あい～</span>";
+    const mainTitle = "架空居酒屋<span class='upright'>AI</span><br>　<span style='font-size: 0.6em; margin-top: 10px;'>～あい～</span>";
 
     const shojiData = [
-      { z: 0,      delay: 0.4, speed: 1.2, rightText: mainTitle, leftText: "お待ち申し上げて<br>おりました。" }, 
-      { z: -1500,  delay: 2.3, speed: 1.0, rightText: mainTitle, leftText: "お待ち申し上げて<br>おりました。" },
-      { z: -3000,  delay: 3.8, speed: 0.9, rightText: mainTitle, leftText: "その日の『最高』を。" },
-      { z: -4500,  delay: 5.4, speed: 0.8, rightText: mainTitle, leftText: "その日の『最高』を。" },
-      { z: -6000,  delay: 6.8, speed: 0.7, rightText: mainTitle, leftText: "その日の『最高』を。" }, 
-      { z: -7200,  delay: 8.2, speed: 0.6, rightText: mainTitle, leftText: "心ゆくまで<br>ご堪能ください。" }, 
-      { z: -8300,  delay: 9.3, speed: 0.6, rightText: mainTitle, leftText: "心ゆくまで<br>ご堪能ください。" }, 
-      { z: -9200,  delay: 10.2, speed: 0.5, rightText: mainTitle, leftText: "心ゆくまで<br>ご堪能ください。" }, 
-      { z: -10000, delay: 11.5, speed: 1.4, rightText: mainTitle, leftText: "さあ。<br>至福のひとときへ。" }   
+      { z: 0,      delay: 0.4, speed: 1.2, rightText: mainTitle, leftText: "お待ち申し上げて<br>　おりました。" }, 
+      { z: -1500,  delay: 2.3, speed: 1.0, rightText: mainTitle, leftText: "お待ち申し上げて<br>　おりました。" },
+      { z: -3000,  delay: 3.8, speed: 0.9, rightText: mainTitle, leftText: "その日の、<br>　『最高』を。" },
+      { z: -4500,  delay: 5.4, speed: 0.8, rightText: mainTitle, leftText: "その日の、<br>　『最高』を。" },
+      { z: -6000,  delay: 6.8, speed: 0.7, rightText: mainTitle, leftText: "その日の、<br>　『最高』を。" }, 
+      { z: -7200,  delay: 8.2, speed: 0.6, rightText: mainTitle, leftText: "心ゆくまで<br>　ご堪能ください。" }, 
+      { z: -8300,  delay: 9.3, speed: 0.6, rightText: mainTitle, leftText: "心ゆくまで<br>　ご堪能ください。" }, 
+      { z: -9200,  delay: 10.2, speed: 0.5, rightText: mainTitle, leftText: "心ゆくまで<br>　ご堪能ください。" }, 
+      { z: -10000, delay: 11.5, speed: 1.4, rightText: mainTitle, leftText: "さあ。<br>　至福のひとときへ。" }   
     ];
 
     let tunnelHtml = '';
